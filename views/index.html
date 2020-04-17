@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Data -->
+    <meta charset="UTF-8" />
+    <meta name="author" content="Mahmoud Mheisen" />
+    <meta name="description" content="FCC Course 6 Project 5" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- CSS Links -->
+    <link type="text/css" rel="stylesheet" href="/public/style.css" />
+
+    <!-- Title -->
+    <title>Anonymous Message Board</title>
+
+    <!-- Icon -->
+    <link
+      id="favicon"
+      rel="icon"
+      href="https://hyperdev.com/favicon-app.ico"
+      type="image/x-icon"
+    />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <header class="center">
+      <h2>Anonymous Message Board</h2>
+      <p>
+        FreeCodeCamp Information Security and Quality Assurance Course, Project
+        5
+      </p>
+    </header>
+
+    <div class="global">
+      <div id="g1" class="api-test">
+        <p id="label" class="center"><strong>API Test </strong>New thread</p>
+
+        <form
+          action="/api/threads/test"
+          method="post"
+          id="testForm1"
+          class="container"
+        >
+          <label id="f1"><code> POST /api/threads/:board</code></label>
+          <input
+            type="text"
+            placeholder="board"
+            id="f2"
+            name="board"
+            required
+          />
+          <textarea
+            id="f3"
+            type="text"
+            placeholder="Thread text..."
+            name="text"
+            required
+          ></textarea>
+          <input
+            id="f4"
+            type="text"
+            placeholder="password to delete"
+            name="delete_password"
+            required
+          />
+
+          <button id="f7" type="submit">
+            <i class="fa fa-paper-plane"></i> Submit New Thread
+          </button>
+        </form>
+      </div>
+
+      <div id="g1a" class="api-test">
+        <p id="label" class="center"><strong>API Test </strong>New reply</p>
+
+        <form
+          action="/api/threads/test"
+          method="post"
+          id="testForm1a"
+          class="container"
+        >
+          <label id="f1"><code> POST /api/replies/:board</code></label>
+          <input
+            type="text"
+            placeholder="board"
+            id="f2"
+            name="board"
+            required
+          />
+          <input
+            id="f3"
+            type="text"
+            placeholder="thread id"
+            name="thread_id"
+            required
+          />
+          <textarea
+            id="f4"
+            type="text"
+            placeholder="Thread text..."
+            name="text"
+            required
+          ></textarea>
+          <input
+            id="f5"
+            type="text"
+            placeholder="password to delete"
+            name="delete_password"
+            required
+          />
+
+          <button id="f7" type="submit">
+            <i class="fa fa-paper-plane"></i> Submit New Reply
+          </button>
+        </form>
+      </div>
+
+      <div id="g2" class="api-test">
+        <p id="label" class="center"><strong>API Test </strong>Report thread</p>
+        <form id="testForm2" class="container">
+          <label id="f1"><code> PUT /api/threads/:board</code></label>
+
+          <input
+            type="text"
+            placeholder="board"
+            id="f2"
+            name="board"
+            required
+          />
+          <input
+            id="f3"
+            type="text"
+            placeholder="id to report"
+            name="thread_id"
+            required
+          />
+          <label class="del_l_2" id="f6"><code> Console.Log() </code></label>
+          <button id="f7b" type="submit">
+            <i class="fa fa-info"></i> Report thread
+          </button>
+        </form>
+      </div>
+
+      <div id="g2a" class="api-test">
+        <p id="label" class="center"><strong>API Test </strong>Report reply</p>
+        <form id="testForm2a" class="container">
+          <label id="f1"><code> PUT /api/replies/:board</code></label>
+          <input
+            type="text"
+            placeholder="board"
+            id="f2"
+            name="board"
+            required
+          />
+          <input id="f3" type='text' placeholder='thread id' name='thread_id'
+          required=>
+          <input
+            id="f4"
+            type="text"
+            placeholder="id to report"
+            name="reply_id"
+            required
+          />
+          <label class="del_l_2" id="f6"><code> Console.Log() </code></label>
+
+          <button id="f7b" type="submit">
+            <i class="fa fa-info"></i> Report reply
+          </button>
+        </form>
+      </div>
+
+      <div id="g3" class="api-test">
+        <p id="label" class="center"><strong>API Test </strong>Delete thread</p>
+        <form id="testForm3" class="container">
+          <label id="f1"><code> DELETE /api/threads/:board</code></label>
+          <input
+            type="text"
+            placeholder="board"
+            id="f2"
+            name="board"
+            required
+          />
+          <input
+            id="f3"
+            type="text"
+            placeholder="id to delete"
+            name="thread_id"
+            required
+          />
+          <input
+            id="f4"
+            type="text"
+            placeholder="password"
+            name="delete_password"
+            required
+          />
+          <button class="del" id="f7c" type="submit">
+            <i class="fa fa-trash"></i> Delete thread
+          </button>
+        </form>
+      </div>
+
+      <div id="g3a" class="api-test">
+        <p id="label" class="center"><strong>API Test </strong>Delete reply</p>
+        <form id="testForm3a" class="container">
+          <label id="f1"><code> DELETE /api/replies/:board</code></label>
+          <input
+            type="text"
+            placeholder="board"
+            id="f2"
+            name="board"
+            required
+          />
+          <input
+            id="f3"
+            type="text"
+            placeholder="thread id"
+            name="thread_id"
+            required
+          />
+          <input
+            id="f4"
+            type="text"
+            placeholder="id to delete"
+            name="reply_id"
+            required
+          />
+          <input
+            id="f5"
+            type="text"
+            placeholder="password"
+            name="delete_password"
+            required
+          />
+          <button id="f7c" class="del_id" type="submit">
+            <i class="fa fa-trash"></i> Delete reply
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="center">
+      <h3>Example Project:</h3>
+      <p>
+        <a href="/b/general/">Go to testing <i>'/b/general/'</i> board</a>
+      </p>
+      <h3>Example Usage:</h3>
+      <img
+        src="https://cdn.gomix.com/8f5547a1-a0d6-48f6-aa38-51753a0105f4%2FScreen%20Shot%202017-01-02%20at%201.04.10%20AM.png"
+      />
+    </div>
+
+    <footer class="center">
+      <strong> &copy; 2020 Mahmoud Mheisen</strong>
+    </footer>
+
+    <script
+      src="https://code.jquery.com/jquery-2.2.1.min.js"
+      integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+      crossorigin="anonymous"
+    ></script>
+    <script src="/public/client.js"></script>
+  </body>
+</html>
