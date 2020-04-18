@@ -15,6 +15,19 @@ process.env.DATABASE =
 
 let app = express();
 app.use(helmet());
+app.use(helmet.frameguard({ action: "sameorigin" }));
+app.use(helmet.dnsPrefetchControl());
+app.use(helmet.referrerPolicy({ policy: "same-origin" }));
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      styleSrc: ["'self'"],
+      scriptSrc: ["'self'"],
+      frameSrc: ["'self'"],
+    },
+  })
+);
 
 // Testing (For FCC testing purposes only):
 app.use(cors({ origin: "*" }));
